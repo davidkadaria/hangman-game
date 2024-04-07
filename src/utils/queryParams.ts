@@ -3,7 +3,7 @@ const getQueryParam = (key: string) => {
 	return queryParams.get(key);
 };
 
-const setQueryParams = (key: string, value: string) => {
+const setQueryParam = (key: string, value: string) => {
 	const queryParams = new URLSearchParams(window.location.search);
 	queryParams.set(key, value);
 	window.history.pushState({}, '', `${window.location.pathname}?${queryParams}`);
@@ -15,4 +15,4 @@ const removeQueryParam = (key: string) => {
 	window.history.pushState({}, '', `${window.location.pathname}?${queryParams}`);
 };
 
-export { getQueryParam, setQueryParams, removeQueryParam };
+export { getQueryParam, setQueryParam, removeQueryParam };
