@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Screen } from './components';
-import { getQueryParam, setQueryParam } from './utils';
+import { getQueryParam, setQueryParam, isPageValid } from './utils';
 import { pageHierarchy } from './constants';
 
 import './styles/theme.css';
@@ -30,6 +30,11 @@ function App() {
 			window.removeEventListener('popstate', handleHistoryChange);
 		};
 	}, []);
+
+	if (isPageValid(currentPage) === false) {
+		setCurrentPage(defaultPage);
+		setQueryParam('page', defaultPage);
+	}
 
 	return (
 		<div className='App'>
