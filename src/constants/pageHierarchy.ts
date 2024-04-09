@@ -1,9 +1,10 @@
 import { Home, GamePlay, HowToPlay, PickCategory } from '../pages';
+import type { Props as CommonProps } from '../pages/commonTypes';
 
 interface PageHierarchy {
 	[key: string]: {
 		back: string | null;
-		component: React.FC;
+		component: React.FC<CommonProps>;
 	};
 }
 
