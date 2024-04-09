@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Screen } from './components';
 import { getQueryParam, setQueryParam } from './utils';
+import { pageHierarchy } from './constants';
 
 import './styles/theme.css';
 import './styles/main.css';
 
+// Choose the default page to display
+const defaultPage: string = pageHierarchy.home.id;
+
 function App() {
-	const [currentTab, setCurrentTab] = useState('home');
+	const [currentPage, setCurrentPage] = useState(defaultPage);
 
 	const handleHistoryChange = () => {
-		const tab = getQueryParam('tab') || 'home';
-		setCurrentTab(tab);
-		setQueryParam('tab', tab);
+		const page = getQueryParam('page') || defaultPage;
+		setCurrentPage(page);
+		setQueryParam('page', page);
 	};
 
 	useEffect(() => {
@@ -29,7 +33,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Screen page={currentTab} />
+			<Screen page={currentPage} />
 		</div>
 	);
 }
