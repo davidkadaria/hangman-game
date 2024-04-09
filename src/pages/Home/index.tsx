@@ -1,7 +1,12 @@
 import type { Props } from '../commonTypes';
+import { PopupCard } from '../../components';
 
 function Home({ setPage }: Props) {
-	return <h1>Home</h1>;
+	return (
+		<PopupCard supTitle='The' title='Hangman' subTitle='Game'>
+			Home
+		</PopupCard>
+	);
 }
 
 export { Home };
