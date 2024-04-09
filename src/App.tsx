@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
-import { Screen } from './components';
+import { useState, useEffect, useCallback } from 'react';
 import { getQueryParam, setQueryParam, isPageValid } from './utils';
-import { pageHierarchy } from './constants';
+import { pageHierarchy, defaultPage } from './constants';
 
 import './styles/theme.css';
 import './styles/main.css';
 
-// Choose the default page to display
-const defaultPage: string = pageHierarchy.home.id;
-
 function App() {
-	const [currentPage, setCurrentPage] = useState(defaultPage);
+	const [currentPage, setCurrentPage] = useState<string>(defaultPage);
 
-	const handleHistoryChange = () => {
-		const page = getQueryParam('page') || defaultPage;
+	const setPage = useCallback((page: string) => {
 		setCurrentPage(page);
 		setQueryParam('page', page);
-	};
+	}, []);
+
+	const handleHistoryChange = useCallback(() => {
+		const page = getQueryParam('page') || defaultPage;
+		setPage(page);
+	}, [setPage]);
 
 	useEffect(() => {
 		// Run handleHistoryChange when the component mounts
@@ -29,18 +29,13 @@ function App() {
 		return () => {
 			window.removeEventListener('popstate', handleHistoryChange);
 		};
-	}, []);
+	}, [handleHistoryChange]);
 
 	if (isPageValid(currentPage) === false) {
-		setCurrentPage(defaultPage);
-		setQueryParam('page', defaultPage);
+		setPage(defaultPage);
 	}
 
-	return (
-		<div className='App'>
-			<Screen page={currentPage} />
-		</div>
-	);
+	return <div className='App'>{pageHierarchy[currentPage].component({ setPage })}</div>;
 }
 
 export default App;
