@@ -19,9 +19,7 @@ function App() {
 	}, [setPage]);
 
 	useEffect(() => {
-		// Run handleHistoryChange when the component mounts
 		handleHistoryChange();
-
 		// Add an event listener to listen for changes to the history
 		window.addEventListener('popstate', handleHistoryChange);
 
