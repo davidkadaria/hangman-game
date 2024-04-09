@@ -1,27 +1,31 @@
+import { Home, GamePlay, HowToPlay, PickCategory } from '../pages';
+
 interface PageHierarchy {
 	[key: string]: {
-		id: string;
 		back: string | null;
+		component: React.FC;
 	};
 }
 
 const pageHierarchy: PageHierarchy = {
 	home: {
-		id: 'home',
 		back: null,
+		component: Home,
 	},
 	howToPlay: {
-		id: 'howToPlay',
 		back: 'home',
+		component: HowToPlay,
 	},
 	pickCategory: {
-		id: 'pickCategory',
 		back: 'home',
+		component: PickCategory,
 	},
-	play: {
-		id: 'gamePlay',
+	gamePlay: {
 		back: null,
+		component: GamePlay,
 	},
 };
 
-export { pageHierarchy };
+const defaultPage: string = 'home';
+
+export { pageHierarchy, defaultPage };
