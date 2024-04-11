@@ -5,7 +5,7 @@ import type { Props } from '../commonTypes';
 function HowToPlay({ setPage }: Props) {
 	return (
 		<>
-			<Header heading='How to play' goBack={() => setPage(pageHierarchy.home.id)} />
+			<Header heading='How to Play' goBack={() => setPage(pageHierarchy.home.id)} />
 		</>
 	);
 }
