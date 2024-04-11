@@ -1,3 +1,8 @@
-type Props = { label: string; onClick: () => void; variant?: 'primary' | 'danger' };
+type Props = {
+	label: string;
+	onClick: () => void;
+	customClassName?: string;
+	variant?: 'primary' | 'danger';
+};
 
 export type { Props };

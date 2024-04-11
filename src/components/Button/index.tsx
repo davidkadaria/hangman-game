@@ -1,9 +1,12 @@
 import type { Props } from './types';
 import './Button.css';
 
-function Button({ label, onClick, variant = 'primary' }: Props) {
+function Button({ label, onClick, customClassName, variant = 'primary' }: Props) {
 	return (
-		<div className={`Button Button--${variant}`} onClick={onClick}>
+		<div
+			className={`Button Button--${variant}${customClassName ? ` ${customClassName}` : ''}`}
+			onClick={onClick}
+		>
 			{label}
 		</div>
 	);
