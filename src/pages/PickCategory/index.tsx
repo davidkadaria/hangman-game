@@ -1,7 +1,13 @@
+import { Header } from '../../components';
+import { pageHierarchy } from '../../constants';
 import type { Props } from '../commonTypes';
 
 function PickCategory({ setPage }: Props) {
-	return <h1>Pick Category</h1>;
+	return (
+		<>
+			<Header heading='Pick category' goBack={() => setPage(pageHierarchy.home.id)} />
+		</>
+	);
 }
 
 export { PickCategory };
