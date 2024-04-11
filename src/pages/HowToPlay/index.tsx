@@ -2,6 +2,7 @@ import { Header, InstructionCard } from '../../components';
 import { pageHierarchy } from '../../constants';
 import { instructionsData } from './data';
 import type { Props } from '../commonTypes';
+import './HowToPlay.css';
 
 function HowToPlay({ setPage }: Props) {
 	return (
@@ -10,6 +11,7 @@ function HowToPlay({ setPage }: Props) {
 			<div className='HowToPlay__instructions'>
 				{instructionsData.map((instruction) => (
 					<InstructionCard
+						key={instruction.id}
 						number={instruction.id}
 						title={instruction.title}
 						instructionText={instruction.content}

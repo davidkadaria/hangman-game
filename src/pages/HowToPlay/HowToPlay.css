@@ -1,0 +1,22 @@
+.HowToPlay__instructions {
+	width: 100%;
+	margin-block: 80px 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+@media (min-width: 768px) {
+	.HowToPlay__instructions {
+		margin-block: 100px;
+		gap: 32px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.HowToPlay__instructions {
+		margin-block: 64px;
+		flex-direction: row;
+		gap: 32px;
+	}
+}
