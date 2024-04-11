@@ -5,7 +5,7 @@ import type { Props } from '../commonTypes';
 function PickCategory({ setPage }: Props) {
 	return (
 		<>
-			<Header heading='Pick category' goBack={() => setPage(pageHierarchy.home.id)} />
+			<Header heading='Pick a Category' goBack={() => setPage(pageHierarchy.home.id)} />
 		</>
 	);
 }
