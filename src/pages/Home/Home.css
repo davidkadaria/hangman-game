@@ -27,3 +27,18 @@
 .Home__how-to-play-button {
 	margin-bottom: 64px;
 }
+
+@media (min-width: 768px) {
+	.Home__play-button {
+		width: 200px;
+		height: 200px;
+	}
+
+	.Home__play-button svg {
+		width: 66px;
+	}
+
+	.Home__how-to-play-button {
+		margin-bottom: 50px;
+	}
+}
