@@ -1,3 +1,3 @@
-type Props = { label: string };
+type Props = { label: string; onClick: () => void; variant?: 'primary' | 'danger' };
 
 export type { Props };
