@@ -34,30 +34,21 @@
 	height: 100%;
 }
 
-.PopupCard__supheading,
-.PopupCard__subheading {
-	position: absolute;
-	color: var(--white);
-	-webkit-text-fill-color: var(--white);
-	text-transform: uppercase;
-	letter-spacing: 0;
-	font-size: 36px;
-	-webkit-text-stroke-width: 1px;
-}
-
-.PopupCard__supheading {
-	top: 2px;
-	left: 36px;
-}
-
-.PopupCard__subheading {
-	bottom: -12px;
-	right: 38px;
-}
-
 .PopupCard__content {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.PopupCard {
+		width: 592px;
+		border-radius: 72px;
+	}
+
+	.PopupCard__heading {
+		height: 185px;
+		margin-top: -110px;
+	}
 }
