@@ -1,7 +1,13 @@
+import { Header } from '../../components';
+import { pageHierarchy } from '../../constants';
 import type { Props } from '../commonTypes';
 
 function HowToPlay({ setPage }: Props) {
-	return <h1>How To Play</h1>;
+	return (
+		<>
+			<Header heading='How to play' goBack={() => setPage(pageHierarchy.home.id)} />
+		</>
+	);
 }
 
 export { HowToPlay };
