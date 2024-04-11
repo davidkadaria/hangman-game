@@ -25,8 +25,8 @@ function IconHeart() {
 					y2='49.467'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#FE71FE' />
-					<stop offset='1' stop-color='#7199FF' />
+					<stop stopColor='#FE71FE' />
+					<stop offset='1' stopColor='#7199FF' />
 				</linearGradient>
 			</defs>
 		</svg>
@@ -135,8 +135,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='b'
@@ -146,8 +146,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='c'
@@ -157,8 +157,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='d'
@@ -168,8 +168,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='e'
@@ -179,8 +179,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='f'
@@ -190,8 +190,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 				<linearGradient
 					id='g'
@@ -201,8 +201,8 @@ function IconLogo() {
 					y2='161.424'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='#fff' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='#fff' />
 				</linearGradient>
 			</defs>
 		</svg>
