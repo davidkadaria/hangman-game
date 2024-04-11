@@ -1,4 +1,4 @@
-import { PopupCard } from '../../components';
+import { PopupCard, Button } from '../../components';
 import { pageHierarchy } from '../../constants';
 import { IconLogo, IconPlay } from '../../icons';
 import type { Props } from '../commonTypes';
@@ -10,6 +10,11 @@ function Home({ setPage }: Props) {
 			<div className='Home__play-button' onClick={() => setPage(pageHierarchy.pickCategory.id)}>
 				<IconPlay />
 			</div>
+			<Button
+				customClassName='Home__how-to-play-button'
+				onClick={() => setPage(pageHierarchy.howToPlay.id)}
+				label='How to play'
+			/>
 		</PopupCard>
 	);
 }
