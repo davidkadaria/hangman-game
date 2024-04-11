@@ -1,5 +1,5 @@
 type Props = {
-	title: string;
+	title: string | React.ReactNode;
 	supTitle?: string;
 	subTitle?: string;
 	blurBackground?: boolean;
