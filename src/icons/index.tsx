@@ -57,10 +57,10 @@ function IconPlay() {
 					height='62.264'
 					x='.925'
 					y='.811'
-					color-interpolation-filters='sRGB'
+					colorInterpolationFilters='sRGB'
 					filterUnits='userSpaceOnUse'
 				>
-					<feFlood flood-opacity='0' result='BackgroundImageFix' />
+					<feFlood floodOpacity='0' result='BackgroundImageFix' />
 					<feBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
 					<feColorMatrix
 						in='SourceAlpha'
