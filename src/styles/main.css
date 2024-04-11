@@ -10,18 +10,21 @@ body {
 	font-family: 'Mouse Memoirs', sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	background: url('../../public/background-mobile.svg') no-repeat center center fixed;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('../../public/background-mobile.svg') no-repeat center center fixed;
 	background-size: cover;
 }
 
 @media (min-width: 768px) {
 	body {
-		background-image: url('../../public/background-tablet.svg');
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+			url('../../public/background-tablet.svg');
 	}
 }
 
 @media (min-width: 1024px) {
 	body {
-		background-image: url('../../public/background-desktop.svg');
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+			url('../../public/background-desktop.svg');
 	}
 }
