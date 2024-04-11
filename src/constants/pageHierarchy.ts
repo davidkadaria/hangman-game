@@ -3,26 +3,26 @@ import type { Props as CommonProps } from '../pages/commonTypes';
 
 interface PageHierarchy {
 	[key: string]: {
-		back: string | null;
+		id: string;
 		component: React.FC<CommonProps>;
 	};
 }
 
 const pageHierarchy: PageHierarchy = {
 	home: {
-		back: null,
+		id: 'home',
 		component: Home,
 	},
 	howToPlay: {
-		back: 'home',
+		id: 'howToPlay',
 		component: HowToPlay,
 	},
 	pickCategory: {
-		back: 'home',
+		id: 'pickCategory',
 		component: PickCategory,
 	},
 	gamePlay: {
-		back: null,
+		id: 'gamePlay',
 		component: GamePlay,
 	},
 };
