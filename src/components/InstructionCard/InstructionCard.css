@@ -1,0 +1,90 @@
+.InstructionCard {
+	width: 100%;
+	position: relative;
+	padding: 32px;
+	background: var(--white);
+	border-radius: 20px;
+}
+
+.InstructionCard__heading {
+	color: var(--dark-navy);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+.InstructionCard__number {
+	margin-right: 16px;
+	color: var(--blue);
+}
+
+.InstructionCard__content {
+	margin-top: 16px;
+	color: #887dc0;
+	line-height: 120%;
+	letter-spacing: 0.05em;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+@media (min-width: 768px) {
+	.InstructionCard {
+		padding: 32px 40px;
+		border-radius: 40px;
+	}
+
+	.InstructionCard__heading {
+		font-size: 40px;
+	}
+
+	.InstructionCard__number {
+		margin-right: 0;
+		position: absolute;
+		left: 40px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 88px;
+	}
+
+	.InstructionCard__heading,
+	.InstructionCard__content {
+		margin-left: 100px;
+	}
+
+	.InstructionCard__content {
+		font-size: 20px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.InstructionCard {
+		padding: 60px 48px;
+		text-align: center;
+	}
+
+	.InstructionCard__heading,
+	.InstructionCard__content {
+		margin-left: 0;
+	}
+
+	.InstructionCard__heading {
+		font-size: 48px;
+		margin-bottom: 40px;
+		margin-inline: -10px;
+	}
+
+	.InstructionCard__number {
+		display: block;
+		position: static;
+		transform: initial;
+		margin-bottom: 40px;
+	}
+
+	.InstructionCard__content {
+		font-size: 26px;
+		margin-top: 0;
+	}
+}
