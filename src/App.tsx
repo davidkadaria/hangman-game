@@ -4,6 +4,7 @@ import { pageHierarchy, defaultPage } from './constants';
 
 import './styles/theme.css';
 import './styles/main.css';
+import './App.css';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState<string>(defaultPage);

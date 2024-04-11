@@ -1,0 +1,15 @@
+.App {
+	padding-inline: 26px;
+}
+
+@media (min-width: 768px) {
+	.App {
+		padding-inline: 40px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.App {
+		padding-inline: 112px;
+	}
+}
