@@ -1,6 +1,6 @@
 import data from '../data.json';
 
-function getCategories() {
+function getCategories(): string[] {
 	return Object.keys(data.categories);
 }
 
