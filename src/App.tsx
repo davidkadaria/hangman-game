@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { getQueryParam, setQueryParam, isPageValid } from './utils';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { getQueryParam, setQueryParam, isPageValid, getCategories } from './utils';
 import { pageHierarchy, defaultPage } from './constants';
 
 import './styles/theme.css';
@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState<string>(defaultPage);
+	const categories = useMemo(() => getCategories(), []);
 
 	const setPage = useCallback((page: string) => {
 		setCurrentPage(page);
@@ -34,7 +35,12 @@ function App() {
 		setPage(defaultPage);
 	}
 
-	return <div className='App'>{pageHierarchy[currentPage].component({ setPage })}</div>;
+	const pageProps = {
+		setPage,
+		...(currentPage === pageHierarchy.pickCategory.id && { categories }),
+	};
+
+	return <div className='App'>{pageHierarchy[currentPage].component(pageProps)}</div>;
 }
 
 export default App;
