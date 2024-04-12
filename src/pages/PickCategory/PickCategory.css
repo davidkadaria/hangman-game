@@ -1,0 +1,22 @@
+.PickCategory__category-list {
+	margin-block: 100px 80px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+@media (min-width: 768px) {
+	.PickCategory__category-list {
+		margin-block: 114px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 32px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.PickCategory__category-list {
+		margin-block: 156px;
+		gap: 50px 32px;
+	}
+}

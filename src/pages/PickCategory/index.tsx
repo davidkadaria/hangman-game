@@ -1,6 +1,7 @@
 import { Header, CategoryItem } from '../../components';
 import { pageHierarchy } from '../../constants';
 import type { Props } from '../commonTypes';
+import './PickCategory.css';
 
 function PickCategory({ setPage, categories }: Props) {
 	return (
