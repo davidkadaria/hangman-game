@@ -15,7 +15,7 @@ import './App.css';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState<string>(defaultPage);
-	const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+	const [currentCategory, setCurrentCategory] = useState<string>();
 
 	const categories = useMemo(() => getCategories(), []);
 
@@ -27,7 +27,7 @@ function App() {
 	const setCategory = useCallback(
 		(category?: string): void => {
 			if (!category || !isValidCategory(category, categories)) {
-				setCurrentCategory(null);
+				setCurrentCategory(undefined);
 				removeQueryParam('category');
 			} else {
 				setCurrentCategory(category);
@@ -74,6 +74,7 @@ function App() {
 	const pageProps = {
 		setPage,
 		...(currentPage === pageHierarchy.pickCategory.id && { categories, setCategory }),
+		...(currentPage === pageHierarchy.gamePlay.id && { category: currentCategory }),
 	};
 
 	return <div className='App'>{pageHierarchy[currentPage].component(pageProps)}</div>;
