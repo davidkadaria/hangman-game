@@ -1,5 +1,7 @@
 import data from '../data.json';
 
-const categoriesList = Object.keys(data.categories);
+function getCategories() {
+	return Object.keys(data.categories);
+}
 
-export { categoriesList };
+export { getCategories };
