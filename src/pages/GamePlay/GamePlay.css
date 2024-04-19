@@ -1,0 +1,67 @@
+.GamePlay__header {
+	width: 100%;
+	margin-top: 46px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.GamePlay__heading {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.GamePlay__menu {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(180deg, #fe71fe 16.42%, #7199ff 100%);
+	box-shadow: inset 0px -5px 0px -1px rgba(157, 45, 245, 0.25);
+	border-radius: 50%;
+}
+
+.GamePlay__menu svg {
+	width: 16px;
+}
+
+.GamePlay__category-name {
+	color: var(--white);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 120%;
+	letter-spacing: -0.005em;
+}
+
+.GamePlay__health {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.GamePlay__health svg {
+	width: auto;
+	height: 24px;
+}
+
+.GamePlay__health-indicator {
+	width: 58px;
+	height: 16px;
+	position: relative;
+	background: var(--white);
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.GamePlay__health-current {
+	width: calc(100% - 8px);
+	position: absolute;
+	top: 4px;
+	bottom: 4px;
+	left: 4px;
+	background: var(--dark-navy);
+	border-radius: 8px;
+}
