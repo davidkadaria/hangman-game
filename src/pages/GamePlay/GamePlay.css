@@ -21,6 +21,7 @@
 	background: linear-gradient(180deg, #fe71fe 16.42%, #7199ff 100%);
 	box-shadow: inset 0px -5px 0px -1px rgba(157, 45, 245, 0.25);
 	border-radius: 50%;
+	cursor: pointer;
 }
 
 .GamePlay__menu svg {

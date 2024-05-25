@@ -16,12 +16,22 @@ import './App.css';
 function App() {
 	const [currentPage, setCurrentPage] = useState<string>(defaultPage);
 	const [currentCategory, setCurrentCategory] = useState<string>();
+	const [isGamePaused, setIsGamePaused] = useState<boolean>(false);
 
 	const categories = useMemo(() => getCategories(), []);
 
 	const setPage = useCallback((page: string): void => {
 		setCurrentPage(page);
 		setQueryParam('page', page);
+	}, []);
+
+	const setPaused = useCallback((paused: boolean): void => {
+		setIsGamePaused(paused);
+		if (paused === false) {
+			removeQueryParam('paused');
+		} else {
+			setQueryParam('paused', paused.toString());
+		}
 	}, []);
 
 	const setCategory = useCallback(
@@ -40,10 +50,12 @@ function App() {
 	const handleHistoryChange = useCallback(() => {
 		const page = getQueryParam('page') || defaultPage;
 		const category = getQueryParam('category');
+		const paused = getQueryParam('paused') === 'true';
 
 		setPage(page);
 		category && page === pageHierarchy.gamePlay.id && setCategory(category);
-	}, [setPage, setCategory]);
+		paused && page === pageHierarchy.gamePlay.id && setPaused(paused);
+	}, [setPage, setCategory, setPaused]);
 
 	useEffect(() => {
 		handleHistoryChange();
@@ -74,7 +86,12 @@ function App() {
 	const pageProps = {
 		setPage,
 		...(currentPage === pageHierarchy.pickCategory.id && { categories, setCategory }),
-		...(currentPage === pageHierarchy.gamePlay.id && { category: currentCategory }),
+		...(currentPage === pageHierarchy.gamePlay.id && {
+			category: currentCategory,
+			setCategory,
+			isGamePaused,
+			setPaused,
+		}),
 	};
 
 	return <div className='App'>{pageHierarchy[currentPage].component(pageProps)}</div>;
