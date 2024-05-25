@@ -65,3 +65,76 @@
 	background: var(--dark-navy);
 	border-radius: 8px;
 }
+
+@media (min-width: 768px) {
+	.GamePlay__header {
+		margin-top: 60px;
+	}
+
+	.GamePlay__heading {
+		gap: 32px;
+	}
+
+	.GamePlay__menu {
+		width: 64px;
+		height: 64px;
+		box-shadow: inset 0px -6px 0px 7px rgba(157, 45, 245, 0.25);
+	}
+
+	.GamePlay__menu svg {
+		width: 26px;
+	}
+
+	.GamePlay__category-name {
+		font-size: 48px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.GamePlay__health {
+		gap: 40px;
+	}
+
+	.GamePlay__health svg {
+		height: 48px;
+	}
+
+	.GamePlay__health-indicator {
+		width: 160px;
+		height: 32px;
+		border-radius: 32px;
+	}
+
+	.GamePlay__health-current {
+		width: calc(100% - 20px);
+		top: 10px;
+		bottom: 10px;
+		left: 10px;
+		border-radius: 20px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.GamePlay__heading {
+		gap: 60px;
+	}
+
+	.GamePlay__menu {
+		width: 94px;
+		height: 94px;
+	}
+
+	.GamePlay__menu svg {
+		width: 38px;
+	}
+
+	.GamePlay__category-name {
+		font-size: 88px;
+		text-transform: initial;
+		letter-spacing: initial;
+	}
+
+	.GamePlay__health-indicator {
+		width: 240px;
+	}
+}
