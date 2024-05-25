@@ -1,6 +1,6 @@
 type Props = {
 	title: string | React.ReactNode;
-	blurBackground?: boolean;
+	darkenBackground?: boolean;
 	children: React.ReactNode;
 };
 
