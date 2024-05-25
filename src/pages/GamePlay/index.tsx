@@ -1,6 +1,6 @@
 import { PopupCard, Button } from '../../components';
 import { pageHierarchy } from '../../constants';
-import { IconMenu, IconHeart } from '../../icons';
+import { IconMenu, IconHeart, IconPaused } from '../../icons';
 import type { Props } from '../commonTypes';
 import './GamePlay.css';
 
@@ -34,28 +34,31 @@ function GamePlay({ setPage, category, setCategory, isGamePaused, setPaused }: P
 			<main className='GamePlay__main'></main>
 
 			{isGamePaused && (
-				<PopupCard title='Paused' blurBackground>
+				<PopupCard title={<IconPaused />} darkenBackground>
 					<Button
-						label='Continue'
+						customClassName='GamePlay__pause-button'
 						onClick={() => {
 							handlePauseStateChange(false);
 						}}
+						label='Continue'
 					/>
 					<Button
-						label='New category'
+						customClassName='GamePlay__pause-button'
 						onClick={() => {
 							handlePauseStateChange(false);
 							setCategory && setCategory(undefined);
 							setPage(pageHierarchy.pickCategory.id);
 						}}
+						label='New category'
 					/>
 					<Button
-						label='Quit game'
-						variant='danger'
+						customClassName='GamePlay__pause-button'
 						onClick={() => {
 							handlePauseStateChange(false);
 							setPage(pageHierarchy.home.id);
 						}}
+						label='Quit game'
+						variant='danger'
 					/>
 				</PopupCard>
 			)}
