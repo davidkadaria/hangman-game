@@ -1,23 +1,18 @@
+import { useMemo } from 'react';
 import { Header, CategoryItem } from '../../components';
-import { pageHierarchy } from '../../constants';
-import type { Props } from '../commonTypes';
+import { getCategories } from '../../utils';
 import './PickCategory.css';
 
-function PickCategory({ setPage, categories, setCategory }: Props) {
+function PickCategory() {
+	const categories = useMemo(() => getCategories(), []);
+
 	return (
 		<>
-			<Header heading='Pick a Category' goBack={() => setPage(pageHierarchy.home.id)} />
+			<Header heading='Pick a Category' goBackPath='/' />
 			<div className='PickCategory__category-list'>
-				{categories &&
-					categories.map((category) => (
-						<CategoryItem
-							key={category}
-							category={category}
-							onClick={() => {
-								setCategory && setCategory(category);
-							}}
-						/>
-					))}
+				{categories.map((category) => (
+					<CategoryItem key={category} category={category} />
+				))}
 			</div>
 		</>
 	);

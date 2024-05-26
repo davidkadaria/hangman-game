@@ -1,13 +1,22 @@
+import { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { PopupCard, Button } from '../../components';
-import { pageHierarchy } from '../../constants';
+import { isValidCategory } from '../../utils';
 import { IconMenu, IconHeart, IconPaused } from '../../icons';
-import type { Props } from '../commonTypes';
 import './GamePlay.css';
 
-function GamePlay({ setPage, category, setCategory, isGamePaused, setPaused }: Props) {
-	const handlePauseStateChange = (paused: boolean): void => {
-		setPaused && setPaused(paused);
-	};
+function GamePlay() {
+	const [isPaused, setIsPaused] = useState(false);
+
+	const { category } = useParams();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (category && !isValidCategory(category)) {
+			// Redirect to pick-category page
+			navigate('/pick-category');
+		}
+	}, [category, navigate]);
 
 	return (
 		<>
@@ -16,7 +25,7 @@ function GamePlay({ setPage, category, setCategory, isGamePaused, setPaused }: P
 					<div
 						className='GamePlay__menu'
 						onClick={() => {
-							handlePauseStateChange(true);
+							setIsPaused(true);
 						}}
 					>
 						<IconMenu />
@@ -33,33 +42,21 @@ function GamePlay({ setPage, category, setCategory, isGamePaused, setPaused }: P
 
 			<main className='GamePlay__main'></main>
 
-			{isGamePaused && (
+			{isPaused && (
 				<PopupCard title={<IconPaused />} darkenBackground>
 					<Button
 						customClassName='GamePlay__pause-button'
 						onClick={() => {
-							handlePauseStateChange(false);
+							setIsPaused(false);
 						}}
 						label='Continue'
 					/>
-					<Button
-						customClassName='GamePlay__pause-button'
-						onClick={() => {
-							handlePauseStateChange(false);
-							setCategory && setCategory(undefined);
-							setPage(pageHierarchy.pickCategory.id);
-						}}
-						label='New category'
-					/>
-					<Button
-						customClassName='GamePlay__pause-button'
-						onClick={() => {
-							handlePauseStateChange(false);
-							setPage(pageHierarchy.home.id);
-						}}
-						label='Quit game'
-						variant='danger'
-					/>
+					<Link to='/pick-category' className='GamePlay__pause-button'>
+						<Button label='New category' />
+					</Link>
+					<Link to='/' className='GamePlay__pause-button'>
+						<Button label='Quit game' variant='danger' />
+					</Link>
 				</PopupCard>
 			)}
 		</>

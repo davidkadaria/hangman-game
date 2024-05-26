@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import { IconBack } from '../../icons';
 import type { Props } from './types';
 import './Header.css';
 
-function Header({ heading, goBack }: Props) {
+function Header({ heading, goBackPath }: Props) {
 	return (
 		<header className='Header'>
-			<div className='Header__icon' onClick={goBack}>
+			<Link to={goBackPath} className='Header__icon'>
 				<IconBack />
-			</div>
+			</Link>
 			<h1 className='Header__heading'>{heading}</h1>
 		</header>
 	);

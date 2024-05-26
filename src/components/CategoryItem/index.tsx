@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
 import type { Props } from './types';
 import './CategoryItem.css';
 
-function CategoryItem({ category, onClick }: Props) {
+function CategoryItem({ category }: Props) {
 	return (
-		<div className='CategoryItem' onClick={onClick}>
+		<Link to={`/game-play/${category}`} className='CategoryItem'>
 			{category}
-		</div>
+		</Link>
 	);
 }
 

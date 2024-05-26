@@ -1,6 +1,6 @@
 type Props = {
 	heading: string;
-	goBack: () => void;
+	goBackPath: string;
 };
 
 export type { Props };

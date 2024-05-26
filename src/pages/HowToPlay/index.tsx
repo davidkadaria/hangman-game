@@ -1,13 +1,11 @@
 import { Header, InstructionCard } from '../../components';
-import { pageHierarchy } from '../../constants';
 import { instructionsData } from './data';
-import type { Props } from '../commonTypes';
 import './HowToPlay.css';
 
-function HowToPlay({ setPage }: Props) {
+function HowToPlay() {
 	return (
 		<>
-			<Header heading='How to Play' goBack={() => setPage(pageHierarchy.home.id)} />
+			<Header heading='How to Play' goBackPath='/' />
 			<div className='HowToPlay__instructions'>
 				{instructionsData.map((instruction) => (
 					<InstructionCard

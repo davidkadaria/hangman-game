@@ -1,20 +1,26 @@
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { PopupCard, Button } from '../../components';
-import { pageHierarchy } from '../../constants';
 import { IconLogo, IconPlay } from '../../icons';
-import type { Props } from '../commonTypes';
 import './Home.css';
 
-function Home({ setPage }: Props) {
+function Home() {
+	useEffect(() => {
+		document.body.classList.add('Home');
+
+		return () => {
+			document.body.classList.remove('Home');
+		};
+	}, []);
+
 	return (
 		<PopupCard title={<IconLogo />}>
-			<div className='Home__play-button' onClick={() => setPage(pageHierarchy.pickCategory.id)}>
+			<Link to='/pick-category' className='Home__play-button'>
 				<IconPlay />
-			</div>
-			<Button
-				customClassName='Home__how-to-play-button'
-				onClick={() => setPage(pageHierarchy.howToPlay.id)}
-				label='How to play'
-			/>
+			</Link>
+			<Link to='/how-to-play'>
+				<Button customClassName='Home__how-to-play-button' label='How to play' />
+			</Link>
 		</PopupCard>
 	);
 }
