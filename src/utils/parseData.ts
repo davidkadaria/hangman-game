@@ -25,7 +25,7 @@ function getRandomWordByCategory(category: string, selectedWordsDuringSession: s
 		randomIndex = Math.floor(Math.random() * filteredWords.length);
 	}
 
-	return filteredWords[randomIndex]['name'];
+	return filteredWords[randomIndex]['name'].toUpperCase();
 }
 
 export { getCategories, isValidCategory, getRandomWordByCategory };
