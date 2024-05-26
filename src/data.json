@@ -56,13 +56,13 @@
 			{ "name": "Luther", "selected": false },
 			{ "name": "Vikings", "selected": false },
 			{ "name": "Top Gear", "selected": false },
-			{ "name": "Sherlock", "selected": false },
 			{ "name": "Gotham", "selected": false },
 			{ "name": "Lupin", "selected": false },
 			{ "name": "Angel", "selected": false },
 			{ "name": "Scrubs", "selected": false }
 		],
 		"Countries": [
+			{ "name": "Georgia", "selected": false },
 			{ "name": "Brazil", "selected": false },
 			{ "name": "Canada", "selected": false },
 			{ "name": "Denmark", "selected": false },
@@ -94,6 +94,7 @@
 			{ "name": "Jamaica", "selected": false }
 		],
 		"Capital Cities": [
+			{ "name": "Tbilisi", "selected": false },
 			{ "name": "Tokyo", "selected": false },
 			{ "name": "Paris", "selected": false },
 			{ "name": "London", "selected": false },
