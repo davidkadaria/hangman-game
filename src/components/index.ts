@@ -3,3 +3,4 @@ export * from './Button';
 export * from './Header';
 export * from './InstructionCard';
 export * from './CategoryItem';
+export * from './WordBoard';
