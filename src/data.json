@@ -18,7 +18,19 @@
 			{ "name": "Speed", "selected": false },
 			{ "name": "Saw", "selected": false },
 			{ "name": "Up", "selected": false },
-			{ "name": "Bolt", "selected": false }
+			{ "name": "Bolt", "selected": false },
+			{ "name": "Logan", "selected": false },
+			{ "name": "Old Boy", "selected": false },
+			{ "name": "Skyfall", "selected": false },
+			{ "name": "The Thing", "selected": false },
+			{ "name": "It Follows", "selected": false },
+			{ "name": "Memento", "selected": false },
+			{ "name": "Mad Max", "selected": false },
+			{ "name": "The Ring", "selected": false },
+			{ "name": "Big Fish", "selected": false },
+			{ "name": "Red Eye", "selected": false },
+			{ "name": "Gone Girl", "selected": false },
+			{ "name": "Dark City", "selected": false }
 		],
 		"TV Shows": [
 			{ "name": "Friends", "selected": false },
@@ -35,7 +47,20 @@
 			{ "name": "Firefly", "selected": false },
 			{ "name": "Suits", "selected": false },
 			{ "name": "Arrow", "selected": false },
-			{ "name": "Bones", "selected": false }
+			{ "name": "Bones", "selected": false },
+			{ "name": "House", "selected": false },
+			{ "name": "Castle", "selected": false },
+			{ "name": "Fringe", "selected": false },
+			{ "name": "Heroes", "selected": false },
+			{ "name": "Homeland", "selected": false },
+			{ "name": "Luther", "selected": false },
+			{ "name": "Vikings", "selected": false },
+			{ "name": "Top Gear", "selected": false },
+			{ "name": "Sherlock", "selected": false },
+			{ "name": "Gotham", "selected": false },
+			{ "name": "Lupin", "selected": false },
+			{ "name": "Angel", "selected": false },
+			{ "name": "Scrubs", "selected": false }
 		],
 		"Countries": [
 			{ "name": "Brazil", "selected": false },
@@ -62,7 +87,11 @@
 			{ "name": "Malta", "selected": false },
 			{ "name": "Nepal", "selected": false },
 			{ "name": "Fiji", "selected": false },
-			{ "name": "Tonga", "selected": false }
+			{ "name": "Tonga", "selected": false },
+			{ "name": "Cuba", "selected": false },
+			{ "name": "Cyprus", "selected": false },
+			{ "name": "Ghana", "selected": false },
+			{ "name": "Jamaica", "selected": false }
 		],
 		"Capital Cities": [
 			{ "name": "Tokyo", "selected": false },
@@ -86,7 +115,15 @@
 			{ "name": "Sofia", "selected": false },
 			{ "name": "Manila", "selected": false },
 			{ "name": "Bern", "selected": false },
-			{ "name": "Rabat", "selected": false }
+			{ "name": "Rabat", "selected": false },
+			{ "name": "Prague", "selected": false },
+			{ "name": "Helsinki", "selected": false },
+			{ "name": "Tunis", "selected": false },
+			{ "name": "Kigali", "selected": false },
+			{ "name": "Lima", "selected": false },
+			{ "name": "Doha", "selected": false },
+			{ "name": "Ankara", "selected": false },
+			{ "name": "Riga", "selected": false }
 		],
 		"Animals": [
 			{ "name": "Elephant", "selected": false },
@@ -112,13 +149,18 @@
 			{ "name": "Swan", "selected": false },
 			{ "name": "Ant", "selected": false },
 			{ "name": "Bat", "selected": false },
-			{ "name": "Bee", "selected": false }
+			{ "name": "Bee", "selected": false },
+			{ "name": "Mouse", "selected": false },
+			{ "name": "Hawk", "selected": false },
+			{ "name": "Lynx", "selected": false },
+			{ "name": "Elk", "selected": false },
+			{ "name": "Crow", "selected": false },
+			{ "name": "Sparrow", "selected": false }
 		],
 		"Sports": [
 			{ "name": "Soccer", "selected": false },
 			{ "name": "Tennis", "selected": false },
 			{ "name": "Baseball", "selected": false },
-			{ "name": "Swimming", "selected": false },
 			{ "name": "Hockey", "selected": false },
 			{ "name": "Boxing", "selected": false },
 			{ "name": "Archery", "selected": false },
@@ -132,7 +174,15 @@
 			{ "name": "Racing", "selected": false },
 			{ "name": "Judo", "selected": false },
 			{ "name": "Skiing", "selected": false },
-			{ "name": "Chess", "selected": false }
+			{ "name": "Chess", "selected": false },
+			{ "name": "Rugby", "selected": false },
+			{ "name": "Fencing", "selected": false },
+			{ "name": "Karate", "selected": false },
+			{ "name": "Running", "selected": false },
+			{ "name": "Surfing", "selected": false },
+			{ "name": "Skating", "selected": false },
+			{ "name": "Pole Vault", "selected": false },
+			{ "name": "Shooting", "selected": false }
 		]
 	}
 }

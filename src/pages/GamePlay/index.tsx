@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { PopupCard, Button } from '../../components';
+import { WordBoard, PopupCard, Button } from '../../components';
 import { isValidCategory, getRandomWordByCategory } from '../../utils';
 import { IconMenu, IconHeart, IconPaused } from '../../icons';
-import type { Character } from './types';
+import type { Word } from './types';
 import './GamePlay.css';
 
 const selectedWordsDuringSession: string[] = [];
 
 function GamePlay() {
 	const [isPaused, setIsPaused] = useState(false);
-	const [currentWord, setCurrentWord] = useState<Character[] | undefined>();
+	const [currentWord, setCurrentWord] = useState<Word[] | undefined>();
 
 	const { category } = useParams();
 	const navigate = useNavigate();
@@ -25,20 +25,34 @@ function GamePlay() {
 				// Store the selected word to prevent it from being selected again
 				selectedWordsDuringSession.push(randomWord);
 				// Split the random word into an array of objects that are type of Character
-				const currentWordAsArrayOfObjects = randomWord
-					.split('')
-					.map((character: string): Character => {
-						return {
-							character,
-							guessed: character === ' ' ? true : false,
-						};
-					});
-				// Set the current word to the state
+				// const currentWordAsArrayOfObjects = randomWord
+				// 	.split('')
+				// 	.map((character: string): Character => {
+				// 		return {
+				// 			character,
+				// 			guessed: character === ' ' ? true : false,
+				// 		};
+				// 	});
+				// // Set the current word to the state
+				// setCurrentWord(currentWordAsArrayOfObjects);
+				const currentWordAsArrayOfWords = randomWord.split(' ');
+				const currentWordAsArrayOfObjects = currentWordAsArrayOfWords.map((word: string): Word => {
+					return {
+						word: word.split('').map((symbol: string) => {
+							return {
+								symbol,
+								guessed: false,
+							};
+						}),
+					};
+				});
 				setCurrentWord(currentWordAsArrayOfObjects);
 			}
 		} else {
 			navigate('/pick-category');
 		}
+
+		console.log(selectedWordsDuringSession);
 	}, [category, navigate]);
 
 	return (
@@ -63,7 +77,9 @@ function GamePlay() {
 				</div>
 			</header>
 
-			<main className='GamePlay__main'></main>
+			<main className='GamePlay__main'>
+				<WordBoard word={currentWord} />
+			</main>
 
 			{isPaused && (
 				<PopupCard title={<IconPaused />} darkenBackground>

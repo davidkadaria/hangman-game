@@ -16,7 +16,9 @@ function isValidCategory(category: string): boolean {
 
 function getRandomWordByCategory(category: string, selectedWordsDuringSession: string[]): string {
 	const words = (data.categories as CategoryData)[category];
-	const filteredWords = words.filter((word) => !selectedWordsDuringSession.includes(word['name']));
+	const filteredWords = words.filter(
+		(word) => !selectedWordsDuringSession.includes(word['name'].toLocaleUpperCase())
+	);
 
 	let randomIndex: number;
 	if (filteredWords.length === 0) {

@@ -1,6 +1,10 @@
 type Character = {
-	character: string;
+	symbol: string;
 	guessed: boolean;
 };
 
-export type { Character };
+type Word = {
+	word: Character[];
+};
+
+export type { Word };
