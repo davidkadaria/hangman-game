@@ -59,7 +59,17 @@
 			{ "name": "Gotham", "selected": false },
 			{ "name": "Lupin", "selected": false },
 			{ "name": "Angel", "selected": false },
-			{ "name": "Scrubs", "selected": false }
+			{ "name": "Scrubs", "selected": false },
+			{ "name": "The Office", "selected": false },
+			{ "name": "The Sopranos", "selected": false },
+			{ "name": "The Wire", "selected": false },
+			{ "name": "Breaking Bad", "selected": false },
+			{ "name": "Game of Thrones", "selected": false },
+			{ "name": "The Simpsons", "selected": false },
+			{ "name": "The Crown", "selected": false },
+			{ "name": "Stranger Things", "selected": false },
+			{ "name": "The Witcher", "selected": false },
+			{ "name": "Mr Robot", "selected": false }
 		],
 		"Countries": [
 			{ "name": "Georgia", "selected": false },
