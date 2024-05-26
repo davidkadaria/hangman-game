@@ -91,7 +91,19 @@
 			{ "name": "Cuba", "selected": false },
 			{ "name": "Cyprus", "selected": false },
 			{ "name": "Ghana", "selected": false },
-			{ "name": "Jamaica", "selected": false }
+			{ "name": "Jamaica", "selected": false },
+			{ "name": "Italy", "selected": false },
+			{ "name": "Ireland", "selected": false },
+			{ "name": "Nigeria", "selected": false },
+			{ "name": "South Africa", "selected": false },
+			{ "name": "South Korea", "selected": false },
+			{ "name": "Switzerland", "selected": false },
+			{ "name": "Thailand", "selected": false },
+			{ "name": "Turkey", "selected": false },
+			{ "name": "Ukraine", "selected": false },
+			{ "name": "United Kingdom", "selected": false },
+			{ "name": "United States", "selected": false },
+			{ "name": "Vietnam", "selected": false }
 		],
 		"Capital Cities": [
 			{ "name": "Tbilisi", "selected": false },
@@ -124,7 +136,7 @@
 			{ "name": "Lima", "selected": false },
 			{ "name": "Doha", "selected": false },
 			{ "name": "Ankara", "selected": false },
-			{ "name": "Riga", "selected": false }
+			{ "name": "Budapest", "selected": false }
 		],
 		"Animals": [
 			{ "name": "Elephant", "selected": false },
