@@ -33,7 +33,7 @@ Users are able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/hangman-game-using-react-qofQyo1sxp)
 - Live Site URL: [Vercel](https://hangman-game-three-hazel.vercel.app/)
 
 ### Built with
