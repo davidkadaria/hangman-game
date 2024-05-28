@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, memo } from 'react';
+import { useState, useEffect, useCallback, memo, useRef } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { WordBoard, PopupCard, Button, KeyBoard } from '../../components';
 import { maxHealth } from '../../constants';
@@ -25,6 +25,8 @@ function GamePlay() {
 	const { category } = useParams();
 	const navigate = useNavigate();
 
+	const popupTimeout = useRef<NodeJS.Timeout | undefined>();
+
 	const setupGame = useCallback(
 		function () {
 			const randomWord = getRandomWordByCategory(category!, selectedWordsDuringSession);
@@ -43,7 +45,11 @@ function GamePlay() {
 		} else {
 			navigate('/pick-category');
 		}
-	}, [category, navigate, setupGame]);
+
+		return () => {
+			clearTimeout(popupTimeout.current);
+		};
+	}, [category, navigate, popupTimeout, setupGame]);
 
 	function handleKeyboardKeyClick(symbol: string) {
 		if (isCorrectChoice(symbol, keyboard, currentWord!)) {
@@ -72,35 +78,55 @@ function GamePlay() {
 				});
 
 				if (isWordGuessed) {
-					setGameStatus('won');
+					// Set the game status to won after a delay
+					popupTimeout.current = setTimeout(() => {
+						setGameStatus('won');
+					}, 1500);
 				}
 
 				return newState;
-			});
-			// Disable the key on the keyboard
-			setKeyboard((prevState) => {
-				return prevState.map((key) => {
-					if (key.symbol === symbol) {
-						return {
-							...key,
-							disabled: true,
-						};
-					}
-
-					return key;
-				});
 			});
 		} else {
 			// Decrease the health
 			setHealth((prevState) => {
 				let newHealth = prevState - 1;
 				if (newHealth <= 0) {
-					setGameStatus('lost');
+					// The game is lost
+					// Reveal the word
+					setCurrentWord((prevState) => {
+						return prevState!.map((word) => {
+							return {
+								word: word.word.map((letter) => {
+									return {
+										...letter,
+										guessed: true,
+									};
+								}),
+							};
+						});
+					});
+					// Set the game status to lost after a delay
+					popupTimeout.current = setTimeout(() => {
+						setGameStatus('lost');
+					}, 2000);
 				}
 
 				return newHealth;
 			});
 		}
+		// Disable the key on the keyboard
+		setKeyboard((prevState) => {
+			return prevState.map((key) => {
+				if (key.symbol === symbol) {
+					return {
+						...key,
+						disabled: true,
+					};
+				}
+
+				return key;
+			});
+		});
 	}
 
 	return (
