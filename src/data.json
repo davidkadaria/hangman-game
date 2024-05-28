@@ -30,7 +30,8 @@
 			{ "name": "Big Fish", "selected": false },
 			{ "name": "Red Eye", "selected": false },
 			{ "name": "Gone Girl", "selected": false },
-			{ "name": "Dark City", "selected": false }
+			{ "name": "Dark City", "selected": false },
+			{ "name": "The Lion King", "selected": false }
 		],
 		"TV Shows": [
 			{ "name": "Friends", "selected": false },
