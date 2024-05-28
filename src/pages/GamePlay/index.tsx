@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, memo } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { WordBoard, PopupCard, Button, KeyBoard } from '../../components';
+import { maxHealth } from '../../constants';
 import {
 	isValidCategory,
 	getRandomWordByCategory,
 	generateWordState,
 	initializeKeyboard,
+	isCorrectChoice,
 } from '../../utils';
-import { IconMenu, IconHeart, IconPaused } from '../../icons';
+import { IconMenu, IconHeart, IconPaused, IconWin, IconLose } from '../../icons';
 import type { Word } from './types';
 import './GamePlay.css';
 
@@ -17,22 +19,90 @@ function GamePlay() {
 	const [isPaused, setIsPaused] = useState(false);
 	const [currentWord, setCurrentWord] = useState<Word[] | undefined>();
 	const [keyboard, setKeyboard] = useState(initializeKeyboard);
+	const [health, setHealth] = useState<number>(maxHealth);
+	const [gameStatus, setGameStatus] = useState<'won' | 'lost' | 'playing'>('playing');
 
 	const { category } = useParams();
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		if (category && isValidCategory(category)) {
-			const randomWord = getRandomWordByCategory(category, selectedWordsDuringSession);
+	const setupGame = useCallback(
+		function () {
+			const randomWord = getRandomWordByCategory(category!, selectedWordsDuringSession);
 			const randomWordState = generateWordState(randomWord);
+			// Add the word to the selected words during the session
+			selectedWordsDuringSession.push(randomWord);
 
 			setCurrentWord(randomWordState);
+			console.log(selectedWordsDuringSession);
+		},
+		[category]
+	);
+
+	useEffect(() => {
+		if (category && isValidCategory(category)) {
+			setupGame();
 		} else {
 			navigate('/pick-category');
 		}
+	}, [category, navigate, setupGame]);
 
-		console.log(selectedWordsDuringSession);
-	}, [category, navigate]);
+	function handleKeyboardKeyClick(symbol: string) {
+		if (isCorrectChoice(symbol, keyboard, currentWord!)) {
+			// Update the current word state (open the letter/letters)
+			setCurrentWord((prevState) => {
+				const newState = prevState!.map((word) => {
+					return {
+						word: word.word.map((letter) => {
+							if (letter.symbol === symbol) {
+								return {
+									...letter,
+									guessed: true,
+								};
+							}
+
+							return letter;
+						}),
+					};
+				});
+
+				// Check if the word is guessed
+				const isWordGuessed = newState.every((word) => {
+					return word.word.every((letter) => {
+						return letter.guessed;
+					});
+				});
+
+				if (isWordGuessed) {
+					setGameStatus('won');
+				}
+
+				return newState;
+			});
+			// Disable the key on the keyboard
+			setKeyboard((prevState) => {
+				return prevState.map((key) => {
+					if (key.symbol === symbol) {
+						return {
+							...key,
+							disabled: true,
+						};
+					}
+
+					return key;
+				});
+			});
+		} else {
+			// Decrease the health
+			setHealth((prevState) => {
+				let newHealth = prevState - 1;
+				if (newHealth <= 0) {
+					setGameStatus('lost');
+				}
+
+				return newHealth;
+			});
+		}
+	}
 
 	return (
 		<>
@@ -50,7 +120,12 @@ function GamePlay() {
 				</div>
 				<div className='GamePlay__health'>
 					<div className='GamePlay__health-indicator'>
-						<span className='GamePlay__health-current'></span>
+						<span
+							className='GamePlay__health-current'
+							style={{
+								width: `${(health / maxHealth) * 100}%`,
+							}}
+						></span>
 					</div>
 					<IconHeart />
 				</div>
@@ -58,7 +133,7 @@ function GamePlay() {
 
 			<main className='GamePlay__main'>
 				<WordBoard wordList={currentWord} />
-				<KeyBoard currentState={keyboard} />
+				<KeyBoard currentState={keyboard} handleKeyboardKeyClick={handleKeyboardKeyClick} />
 			</main>
 
 			{isPaused && (
@@ -70,16 +145,52 @@ function GamePlay() {
 						}}
 						label='Continue'
 					/>
-					<Link to='/pick-category' className='GamePlay__pause-button'>
-						<Button label='New category' />
-					</Link>
-					<Link to='/' className='GamePlay__pause-button'>
-						<Button label='Quit game' variant='danger' />
-					</Link>
+					<RepetitiveMenuItems />
+				</PopupCard>
+			)}
+			{gameStatus === 'won' && (
+				<PopupCard title={<IconWin />} darkenBackground>
+					<Button
+						customClassName='GamePlay__pause-button'
+						onClick={() => {
+							setupGame();
+							setHealth(maxHealth);
+							setGameStatus('playing');
+							setKeyboard(initializeKeyboard);
+						}}
+						label='Play again!'
+					/>
+					<RepetitiveMenuItems />
+				</PopupCard>
+			)}
+			{gameStatus === 'lost' && (
+				<PopupCard title={<IconLose />} darkenBackground>
+					<Button
+						customClassName='GamePlay__pause-button'
+						onClick={() => {
+							setupGame();
+							setHealth(maxHealth);
+							setGameStatus('playing');
+							setKeyboard(initializeKeyboard);
+						}}
+						label='Play again!'
+					/>
+					<RepetitiveMenuItems />
 				</PopupCard>
 			)}
 		</>
 	);
 }
+
+const RepetitiveMenuItems = memo(() => (
+	<>
+		<Link to='/pick-category' className='GamePlay__pause-button'>
+			<Button label='New category' />
+		</Link>
+		<Link to='/' className='GamePlay__pause-button'>
+			<Button label='Quit game' variant='danger' />
+		</Link>
+	</>
+));
 
 export { GamePlay };
