@@ -33,7 +33,6 @@ function GamePlay() {
 			selectedWordsDuringSession.push(randomWord);
 
 			setCurrentWord(randomWordState);
-			console.log(selectedWordsDuringSession);
 		},
 		[category]
 	);
