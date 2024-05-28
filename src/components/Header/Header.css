@@ -29,8 +29,6 @@
 }
 
 .Header__heading {
-	font-style: normal;
-	font-weight: 400;
 	font-size: 48px;
 	letter-spacing: 0.05em;
 	background: linear-gradient(180deg, #67b6ff 16.42%, var(--white) 100%);

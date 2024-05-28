@@ -6,8 +6,6 @@
 	color: var(--white);
 	border-radius: 40px;
 	text-transform: uppercase;
-	font-style: normal;
-	font-weight: 400;
 	font-size: 32px;
 	cursor: pointer;
 }

@@ -30,8 +30,6 @@
 
 .GamePlay__category-name {
 	color: var(--white);
-	font-style: normal;
-	font-weight: 400;
 	font-size: 40px;
 	line-height: 120%;
 	letter-spacing: -0.005em;

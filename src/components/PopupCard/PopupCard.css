@@ -24,8 +24,6 @@
 	background-clip: text;
 	text-align: center;
 	letter-spacing: -4px;
-	font-style: normal;
-	font-weight: 400;
 	font-size: 94px;
 	-webkit-text-stroke: var(--dark) 2px;
 }
