@@ -1,1 +1,1 @@
-export * from './pageHierarchy';
+export {};
