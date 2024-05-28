@@ -295,8 +295,8 @@ function IconWin() {
 					y2='185'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='white' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='white' />
 				</linearGradient>
 			</defs>
 		</svg>
@@ -342,8 +342,8 @@ function IconLose() {
 					y2='185'
 					gradientUnits='userSpaceOnUse'
 				>
-					<stop stop-color='#67B6FF' />
-					<stop offset='1' stop-color='white' />
+					<stop stopColor='#67B6FF' />
+					<stop offset='1' stopColor='white' />
 				</linearGradient>
 			</defs>
 		</svg>
