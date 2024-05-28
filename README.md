@@ -38,6 +38,7 @@ Users are able to:
 
 ### Built with
 
+- [TypeScript](https://www.typescriptlang.org/) - "JavaScript with syntax for types"
 - [React](https://reactjs.org/) - JS library
 - [React Router](https://reactrouter.com/)
 - Mobile-first workflow
