@@ -22,20 +22,9 @@ function GamePlay() {
 				navigate('/pick-category');
 			} else {
 				const randomWord = getRandomWordByCategory(category, selectedWordsDuringSession);
-				// Store the selected word to prevent it from being selected again
-				selectedWordsDuringSession.push(randomWord);
-				// Split the random word into an array of objects that are type of Character
-				// const currentWordAsArrayOfObjects = randomWord
-				// 	.split('')
-				// 	.map((character: string): Character => {
-				// 		return {
-				// 			character,
-				// 			guessed: character === ' ' ? true : false,
-				// 		};
-				// 	});
-				// // Set the current word to the state
-				// setCurrentWord(currentWordAsArrayOfObjects);
+				// Split the word into an array of words
 				const currentWordAsArrayOfWords = randomWord.split(' ');
+				// Convert the array of words into an array of objects
 				const currentWordAsArrayOfObjects = currentWordAsArrayOfWords.map((word: string): Word => {
 					return {
 						word: word.split('').map((symbol: string) => {
@@ -46,6 +35,7 @@ function GamePlay() {
 						}),
 					};
 				});
+
 				setCurrentWord(currentWordAsArrayOfObjects);
 			}
 		} else {
@@ -78,7 +68,7 @@ function GamePlay() {
 			</header>
 
 			<main className='GamePlay__main'>
-				<WordBoard word={currentWord} />
+				<WordBoard wordList={currentWord} />
 			</main>
 
 			{isPaused && (
