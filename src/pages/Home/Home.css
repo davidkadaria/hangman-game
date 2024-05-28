@@ -9,6 +9,8 @@
 	box-shadow: inset 0px -4px 0px 5px var(--dark), inset 0px -12px 0px 11px #9d2df5;
 	border-radius: 50%;
 	cursor: pointer;
+
+	animation: zoomInOut var(--animation-duration) infinite;
 }
 
 .Home__play-button:active {

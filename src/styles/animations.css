@@ -1,0 +1,24 @@
+:root {
+	--animation-duration: 0.5s;
+}
+
+@keyframes zoomInOut {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Home, HowToPlay, PickCategory, GamePlay, NotFound } from './pages';
 
 import './styles/theme.css';
+import './styles/animations.css';
 import './styles/main.css';
 import './App.css';
 

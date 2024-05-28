@@ -29,6 +29,8 @@
 
 .WordBoard__character--guessed {
 	opacity: 1;
+
+	animation: rotate var(--animation-duration);
 }
 
 @media (min-width: 768px) {
