@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { WordBoard, PopupCard, Button, KeyBoard } from '../../components';
-import { isValidCategory, getRandomWordByCategory, initializeKeyboard } from '../../utils';
+import {
+	isValidCategory,
+	getRandomWordByCategory,
+	generateWordState,
+	initializeKeyboard,
+} from '../../utils';
 import { IconMenu, IconHeart, IconPaused } from '../../icons';
 import type { Word } from './types';
 import './GamePlay.css';
@@ -17,28 +22,11 @@ function GamePlay() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (category) {
-			if (!isValidCategory(category)) {
-				// Redirect to pick-category page
-				navigate('/pick-category');
-			} else {
-				const randomWord = getRandomWordByCategory(category, selectedWordsDuringSession);
-				// Split the word into an array of words
-				const currentWordAsArrayOfWords = randomWord.split(' ');
-				// Convert the array of words into an array of objects
-				const currentWordAsArrayOfObjects = currentWordAsArrayOfWords.map((word: string): Word => {
-					return {
-						word: word.split('').map((symbol: string) => {
-							return {
-								symbol,
-								guessed: false,
-							};
-						}),
-					};
-				});
+		if (category && isValidCategory(category)) {
+			const randomWord = getRandomWordByCategory(category, selectedWordsDuringSession);
+			const randomWordState = generateWordState(randomWord);
 
-				setCurrentWord(currentWordAsArrayOfObjects);
-			}
+			setCurrentWord(randomWordState);
 		} else {
 			navigate('/pick-category');
 		}
