@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { WordBoard, PopupCard, Button } from '../../components';
-import { isValidCategory, getRandomWordByCategory } from '../../utils';
+import { WordBoard, PopupCard, Button, KeyBoard } from '../../components';
+import { isValidCategory, getRandomWordByCategory, initializeKeyboard } from '../../utils';
 import { IconMenu, IconHeart, IconPaused } from '../../icons';
 import type { Word } from './types';
 import './GamePlay.css';
@@ -11,6 +11,7 @@ const selectedWordsDuringSession: string[] = [];
 function GamePlay() {
 	const [isPaused, setIsPaused] = useState(false);
 	const [currentWord, setCurrentWord] = useState<Word[] | undefined>();
+	const [keyboard, setKeyboard] = useState(initializeKeyboard);
 
 	const { category } = useParams();
 	const navigate = useNavigate();
@@ -69,6 +70,7 @@ function GamePlay() {
 
 			<main className='GamePlay__main'>
 				<WordBoard wordList={currentWord} />
+				<KeyBoard currentState={keyboard} />
 			</main>
 
 			{isPaused && (
