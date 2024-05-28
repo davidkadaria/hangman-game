@@ -9,11 +9,11 @@ function PickCategory() {
 	return (
 		<>
 			<Header heading='Pick a Category' goBackPath='/' />
-			<div className='PickCategory__category-list'>
+			<main className='PickCategory__category-list'>
 				{categories.map((category) => (
 					<CategoryItem key={category} category={category} />
 				))}
-			</div>
+			</main>
 		</>
 	);
 }

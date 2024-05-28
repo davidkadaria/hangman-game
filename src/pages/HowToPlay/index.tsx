@@ -6,7 +6,7 @@ function HowToPlay() {
 	return (
 		<>
 			<Header heading='How to Play' goBackPath='/' />
-			<div className='HowToPlay__instructions'>
+			<main className='HowToPlay__instructions'>
 				{instructionsData.map((instruction) => (
 					<InstructionCard
 						key={instruction.id}
@@ -15,7 +15,7 @@ function HowToPlay() {
 						instructionText={instruction.content}
 					/>
 				))}
-			</div>
+			</main>
 		</>
 	);
 }
