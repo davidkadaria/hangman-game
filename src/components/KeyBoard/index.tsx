@@ -1,7 +1,7 @@
 import type { Props } from './types';
 import './KeyBoard.css';
 
-function KeyBoard({ currentState }: Props) {
+function KeyBoard({ currentState, handleKeyboardKeyClick }: Props) {
 	return (
 		<div className='KeyBoard'>
 			{currentState.map((key) => {
@@ -9,6 +9,12 @@ function KeyBoard({ currentState }: Props) {
 					<button
 						key={key.symbol}
 						className={`KeyBoard__key ${key.disabled ? 'KeyBoard__key--disabled' : ''}`}
+						onClick={() => {
+							if (key.disabled) {
+								return;
+							}
+							handleKeyboardKeyClick(key.symbol);
+						}}
 						disabled={key.disabled}
 					>
 						{key.symbol}
