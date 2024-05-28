@@ -18,7 +18,7 @@ function IconHeart() {
 			/>
 			<defs>
 				<linearGradient
-					id='a1'
+					id='a'
 					x1='26.667'
 					x2='26.667'
 					y1='8.567'
@@ -52,7 +52,7 @@ function IconPlay() {
 			</g>
 			<defs>
 				<filter
-					id='a2'
+					id='a'
 					width='66.038'
 					height='62.264'
 					x='.925'
@@ -128,7 +128,7 @@ function IconLogo() {
 			/>
 			<defs>
 				<linearGradient
-					id='a3'
+					id='a'
 					x1='187.749'
 					x2='187.749'
 					y1='28.203'
